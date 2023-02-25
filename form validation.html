@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ <title>FORM VALIDATION</title>
+ <style>
+ h3
+ {
+ font-size:50px;
+ text-align:center;
+ }
+ label{
+ font-size:25px;
+ }
+ input{
+ font-size:20px;
+ font-family:Times New Roman;
+ }
+ form{
+ text-align:center;
+ }
+ #btn{
+ margin-right:5cm;
+ border:3px solid black;
+ font-size:20px;
+ height:40px;
+ width:5cm;
+ padding:4px;
+ color:white;
+ background-color:blue;
+ }
+
+ </style>
+ </head>
+ <body>
+ <h3 style="color:blue;">validate Form Using JavaScript</h3><hr>
+ <form>
+ <label for="fname" ></label>
+ <input type="text" id="fname" autocomplete="off"
+placeholder="enter firstname" class="fname">
+ <label for="lname" ></label>
+ <input type="text" id="lname" autocomplete="off"
+placeholder="enter lastname" class="lname">
+ <h4 id="r1" style="color:crimson"></h4>
+ <label for="mail"></label>
+ <input type="text" id="mail"placeholder="enter mailid"
+autocomplete="off" class="mail">
+ <label for="no"></label>
+ <input type="text" id="no" class="no" placeholder="enter phone no"
+autocomplete="off">
+ <h4 id="r2" style="color:crimson"></h4>
+ <h4 id="r3" style="color:crimson"></h4>
+ <label for="pw" ></label>
+ <input type="password" class="pw" id="pw" placeholder="enter
+password" autocomplete="off">
+ <label for="cpw" ></label>
+ <input type="text" class="cpw" id="cpw" placeholder="enter confirm
+password" autocomplete="off"><br><br>
+ <h4 id="r4" style="color:crimson"></h4>
+ <h4 id="r5" style="color:crimson"></h4>
+ <input type="button" id="btn" value="submit" onclick="validate()">
+ </form>
+ <script>
+ function validate()
+ {
+ var lname=document.getElementById("lname").value;
+ if(!(/\s[a-zA-Z]/g.test(lname)))
+ {
+ document.getElementById("r1").innerHTML="last name must be
+only string without whitespace";
+ }
+var mail=document.getElementById("mail");
+if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g.test(mail)))
+{
+ document.getElementById("r2").innerHTML="email address must be in
+valid format with @ symbol";
+}
+var no=document.getElementById("no").value;
+if(!/^[0-9]{10}$/g.test(no))
+{
+ document.getElementById("r3").innerHTML="mobile no must have 10
+digits";
+}
+var pw=document.getElementById("pw").value;
+ if(!( /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8}$/));
+ {
+ document.getElementById("r4").innerHTML="password must have at
+least one uppercase,lowercase,digit,special characters & 8 characters";
+ }
+ var cpw=document.getElementById("cpw").value;
+ if(!(pw==cpw))
+ {
+ document.getElementById("r5").innerHTML= "Confirm Password is
+required";
+ }
+ }
+ </script>
+ </body>
+</html>
